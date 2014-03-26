@@ -12,6 +12,8 @@ TestResults
 *.suo
 *.user
 *.sln.docstates
+Thumbs.db
+UnitTest1.cs
 
 # Build results
 [Dd]ebug/
@@ -80,6 +82,9 @@ publish
 
 # NuGet Packages Directory
 packages
+
+# NuGet Package
+*.nupkg
 
 # Windows Azure Build Output
 csx

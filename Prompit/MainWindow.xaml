@@ -1,0 +1,137 @@
+﻿<Window x:Class="XPFriend.Prompit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:XPFriend.Prompit.Properties"
+        Title="Prompit" x:Name="window"
+        WindowStyle="SingleBorderWindow"
+        Icon="Resources/Images/Prompit.ico"
+        Topmost="True"
+        Height="460" Width="330">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="NormalColor" StartPoint="0.5,0" EndPoint="0.5,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0.0" Color="#66FF66" />
+                <GradientStop Offset="1.0" Color="#6CBE42" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ErrorColor" StartPoint="0.5,0" EndPoint="0.5,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0.0" Color="#ee0000" />
+                <GradientStop Offset="1.0" Color="#8b0000" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="WhiteBrush" Color="White"/>
+        <SolidColorBrush x:Key="BlueBrush" Color="#0044cc"/>
+        <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource {x:Type ProgressBar}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid>
+                            <Border Background="#f7f7f7" BorderBrush="#c0c0c0" BorderThickness="0" x:Name="PART_Track" CornerRadius="3" />
+                            <Border x:Name="PART_Indicator" CornerRadius="3" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="/Prompit;component/Resources/#FontAwesome"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#0088cc" />
+                            <GradientStop Offset="1.0" Color="#0044cc" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle x:Name="background" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Background}"/>
+                            <ContentPresenter x:Name="foreground" Margin="4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="background" Property="Fill" Value="#0044cc"/>
+                                <Setter TargetName="foreground" Property="TextBlock.Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="background" Property="Opacity" Value="0.3"/>
+                                <Setter TargetName="foreground" Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="1.0" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="8.0" BorderThickness="4">
+        <Grid x:Name="container" Margin="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="messageText" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap" Padding="0,4" Background="Transparent" Visibility="Collapsed" Margin="8" Cursor="Hand"/>
+            <Button x:Name="messageButton" Grid.Row="2" Content="OK" VerticalAlignment="Stretch" Margin="16" Visibility="Collapsed"/>
+            <TextBox x:Name="scenario" Grid.Row="0" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" BorderThickness="0,0,0,1" Padding="0,4" Background="Transparent" Height="48" Margin="0,0,0,8"/>
+            <Grid x:Name="editor" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="comment" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="#c0c0c0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" BorderThickness="1" Foreground="Red" FontWeight="Bold" Background="#f7f7f7" Padding="4" Margin="0,5,0,4" ToolTip="{x:Static properties:Resources.ToolTipsOfCommentField}"/>
+                <Button x:Name="nextButton" Grid.Row="1" Grid.Column="2" Content="&#xf061;" IsDefault="True" />
+                <Button x:Name="previousButton" Grid.Row="1" Grid.Column="0" Content="&#xf060;" Margin="0"/>
+                <Label x:Name="counter" Grid.Row="1" Grid.Column="1" Content="0/00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Border x:Name="screenShotButtonBorder" Grid.Row="1" Grid.Column="4" BorderBrush="White" BorderThickness="2" CornerRadius="4">
+                    <Button x:Name="screenShotButton" Content="&#xf030;" IsDefault="True" Background="Transparent" Foreground="#0044cc" ToolTip="{x:Static properties:Resources.ToolTipsOfScreenshotButton}"/>
+                </Border>
+                <Button x:Name="reloadButton" Grid.Row="1" Grid.Column="5" Content="&#xf021;" IsDefault="True" Background="Transparent" Foreground="#0044cc" ToolTip="{x:Static properties:Resources.ToolTipsOfReloadButton}"/>
+                <Button x:Name="finishButton" Grid.Row="1" Grid.Column="5" Content="&#xf011;" IsDefault="True" Background="Transparent" Foreground="#0044cc" Visibility="Collapsed" ToolTip="{x:Static properties:Resources.ToolTipsOfFinishButton}"/>
+                <ProgressBar x:Name="progress" Grid.Row="1" Grid.Column="3" Value="0" Margin="8,2"/>
+            </Grid>
+            <GridSplitter x:Name="splitter" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="4" Background="#c0c0c0" Focusable="False" Opacity="0.2">
+                <GridSplitter.Triggers>
+                    <EventTrigger RoutedEvent="GridSplitter.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="GridSplitter.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.2" Duration="0:0:0.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </GridSplitter.Triggers>
+            </GridSplitter>
+        </Grid>
+    </Border>
+</Window>

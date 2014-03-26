@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<testsuite xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <testcase name="001. STEP-01" classname="Release-01.Feature-01"/>
+  <testcase name="002. STEP-02" classname="Release-01.Feature-01"/>
+  <testcase name="001. STEP-01" classname="Release-01.Feature-01"/>
+</testsuite>

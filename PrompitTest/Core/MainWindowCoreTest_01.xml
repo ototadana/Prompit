@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<testsuite xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="リリース" tests="5" failures="3" errors="0" time="24.366" timestamp="2014-03-18 12:40:20">
+  <testcase name="001. ステップ その(1)" time="9.293" classname="フィーチャー 1.シナリオ 1">
+    <system-out>001. ステップ その(1)
+&lt;ol&gt;
+&lt;li&gt;ステップ実施手順 1&lt;/li&gt;
+&lt;li&gt;ステップ実施手順 2&lt;/li&gt;
+&lt;/ol&gt;</system-out>
+  </testcase>
+  <testcase name="002. ステップ その(2)" time="3.730" classname="フィーチャー 1.シナリオ 1">
+    <failure type="Failure" message="Unimplemented.">Unimplemented.</failure>
+    <system-out>002. ステップ その(2)</system-out>
+  </testcase>
+  <testcase name="003. ステップ その(3)" time="3.403" classname="フィーチャー 1.シナリオ 1">
+    <system-out>003. ステップ その(3)
+&lt;ul&gt;
+&lt;li&gt;確認事項1&lt;/li&gt;
+&lt;li&gt;確認事項2&lt;/li&gt;
+&lt;/ul&gt;</system-out>
+  </testcase>
+  <testcase name="001. ステップ その(1)" time="2.559" classname="フィーチャー 1.シナリオ 3">
+    <failure type="Failure" message="xxx">xxx</failure>
+    <system-out>001. ステップ その(1)</system-out>
+  </testcase>
+  <testcase name="001. ステップ その(1)" time="5.381" classname="フィーチャー 2.シナリオ 1">
+    <failure type="Failure" message="Unimplemented.">Unimplemented.</failure>
+    <system-out>001. ステップ その(1)</system-out>
+  </testcase>
+</testsuite>
