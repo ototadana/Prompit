@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Prompit</id>
+    <title>Prompit</title>
+    <version>$version$</version>
+    <authors>XPFriend Community</authors>
+    <owners>XPFriend Community</owners>
+    <summary>Prompit</summary>
+    <description>Prompit is a manual testing tool that can generate JUnit format XML reports.</description>
+    <projectUrl>https://github.com/ototadana/Prompit</projectUrl>
+    <tags>Prompit JUnit CI manual testing</tags>
+    <copyright>Copyright 2014 XPFriend Community</copyright>
+    <licenseUrl>https://github.com/ototadana/Prompit/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://xpfriend.com/images/pp96.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="..\README.*" target="." />
+    <file src="bin\Release\*.dll" target="." />
+    <file src="bin\Release\Prompit.exe" target="." />
+    <file src="bin\Release\Prompit.exe.config" target="." />
+    <file src="bin\Release\Prompit.exe.gui" target="." />
+    <file src="bin\Release\ja\*" target="ja" />
+    <file src="bin\Release\Resources\*" target="Resources" />
+  </files>
+</package>
