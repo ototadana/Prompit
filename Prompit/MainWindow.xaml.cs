@@ -66,7 +66,27 @@ namespace XPFriend.Prompit
                 this.core.OpenLogFile(this.messageText.ToolTip.ToString());
 
             this.KeyDown += (sender, e) => ChangeButtonIcon();
-            this.KeyUp += (sender, e) => SetDefaultButtonIcon(); 
+            this.KeyUp += (sender, e) => SetDefaultButtonIcon();
+            this.stepPanel.DocumentCompleted += (sender, e) => AddCheckboxEvent();
+
+        }
+
+        private void AddCheckboxEvent()
+        {
+            foreach (System.Windows.Forms.HtmlElement element in
+                this.stepPanel.Document.GetElementsByTagName("input"))
+            {
+                if (element.GetAttribute("type") == "checkbox")
+                {
+                    element.Click += (sender, e) =>
+                    {
+                        if (this.comment.Text == Properties.Resources.Untested)
+                        {
+                            this.comment.Text = "";
+                        }
+                    };
+                }
+            }
         }
 
         private void SetDefaultButtonIcon()
