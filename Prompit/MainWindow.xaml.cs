@@ -291,7 +291,9 @@ namespace XPFriend.Prompit
 
         private void UpdateProgress(Steps steps)
         {
-            this.counter.Content = steps.CurrentIndex + "/" + steps.Count;
+            Step step = steps.CurrentStep;
+            this.indexInScenario.Text = "(" + (step.IndexInScenario + 1) + "/" + step.Scenario.Steps.Count + ")";
+            this.counter.Content = (steps.CurrentIndex * 100 / steps.Count) + "%";
             this.progress.Maximum = steps.Count;
             this.progress.Value = steps.CurrentIndex;
             this.progress.Foreground = steps.HasError ? ErrorColor : NormalColor;
@@ -425,6 +427,7 @@ namespace XPFriend.Prompit
             this.reloadButton.Visibility = Visibility.Visible;
             this.comment.Visibility = Visibility.Visible;
             this.splitter.Visibility = Visibility.Visible;
+            this.indexInScenario.Visibility = Visibility.Visible;
             this.previousButton.IsEnabled = steps.CurrentIndex > 0;
             this.nextButton.IsEnabled = true;
 
@@ -465,6 +468,7 @@ namespace XPFriend.Prompit
             this.reloadButton.Visibility = Visibility.Collapsed;
             this.comment.Visibility = Visibility.Collapsed;
             this.splitter.Visibility = Visibility.Collapsed;
+            this.indexInScenario.Visibility = Visibility.Collapsed;
             this.previousButton.IsEnabled = steps.CurrentIndex > 0;
             this.nextButton.IsEnabled = false;
             this.screenShotButton.IsEnabled = false;
@@ -505,6 +509,7 @@ namespace XPFriend.Prompit
             this.messageText.ToolTip = errorLogFile;
 
             this.scenario.Visibility = Visibility.Collapsed;
+            this.indexInScenario.Visibility = Visibility.Collapsed;
             this.stepPanelHost.Visibility = Visibility.Collapsed;
             this.splitter.Visibility = Visibility.Collapsed;
             this.editor.Visibility = Visibility.Collapsed;
@@ -527,6 +532,7 @@ namespace XPFriend.Prompit
             this.messageButton.Visibility = Visibility.Collapsed;
 
             this.scenario.Visibility = Visibility.Visible;
+            this.indexInScenario.Visibility = Visibility.Visible;
             this.stepPanelHost.Visibility = Visibility.Visible;
             this.splitter.Visibility = Visibility.Visible;
             this.editor.Visibility = Visibility.Visible;

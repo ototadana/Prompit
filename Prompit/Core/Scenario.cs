@@ -17,5 +17,11 @@ namespace XPFriend.Prompit.Core
         {
             this.feature = feature;
         }
+
+        internal void Add(Step step)
+        {
+            step.IndexInScenario = Steps.Count;
+            Steps.Add(step);
+        }
     }
 }

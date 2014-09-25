@@ -19,7 +19,7 @@ Requirement
 
 Download
 --------
-*   [http://xpfriend.com/prompit/Prompit-1.0.zip](http://xpfriend.com/prompit/Prompit-1.0.zip)
+*   [http://xpfriend.com/prompit/Prompit-1.1.zip](http://xpfriend.com/prompit/Prompit-1.1.zip)
 
 
 How to use

@@ -129,7 +129,7 @@ namespace XPFriend.Prompit.Core
                     UpdateATag(child);
                     step.Name = label + Shorten(child);
                     step.Description = ToDescription(label, child);
-                    scenario.Steps.Add(step);
+                    scenario.Add(step);
                     this.htmlReport.UpdateHtmlNodeAsStep(child, scenarioId, stepNumber, step.Name);
                 }
             }

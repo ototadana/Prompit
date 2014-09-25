@@ -89,7 +89,8 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="messageText" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap" Padding="0,4" Background="Transparent" Visibility="Collapsed" Margin="8" Cursor="Hand"/>
             <Button x:Name="messageButton" Grid.Row="2" Content="OK" VerticalAlignment="Stretch" Margin="16" Visibility="Collapsed"/>
-            <TextBox x:Name="scenario" Grid.Row="0" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" BorderThickness="0,0,0,1" Padding="0,4" Background="Transparent" Height="48" Margin="0,0,0,8"/>
+            <TextBox x:Name="scenario" Grid.Row="0" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" BorderThickness="0,0,0,1" Padding="0,4" Background="Transparent" Height="60" Margin="0,0,0,8" FontSize="18"/>
+            <TextBlock x:Name="indexInScenario" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,0,11" Foreground="Gray"/>
             <Grid x:Name="editor" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>

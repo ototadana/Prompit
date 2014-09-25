@@ -19,7 +19,7 @@ Prompit は JUnit形式のXMLレポートを出力できる、手動テスト支
 
 ダウンロード
 ------------
-*   [http://xpfriend.com/prompit/Prompit-1.0.zip](http://xpfriend.com/prompit/Prompit-1.0.zip)
+*   [http://xpfriend.com/prompit/Prompit-1.1.zip](http://xpfriend.com/prompit/Prompit-1.1.zip)
 
 
 利用方法

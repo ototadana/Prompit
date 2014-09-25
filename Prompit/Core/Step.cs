@@ -28,6 +28,8 @@ namespace XPFriend.Prompit.Core
         internal long Time { get; set; }
         internal string ImageFileName { get; set; }
 
+        internal int IndexInScenario { get; set; }
+
         internal Step(Scenario scenario)
         {
             this.scenario = scenario;
